@@ -46,7 +46,87 @@ graph TD
 #### Create Accounts
 
 - [x] 1.1 Create `dev.vaulta` account with 2-of-2 multi-sig authority (ahayrapetian + aaron)
+
+**newaccount**
+```json
+{
+    "creator": "eosio",
+    "name": "dev.vaulta",
+    "owner": {
+        "threshold": 1,
+        "keys": [],
+        "accounts": [
+            {
+                "weight": 1,
+                "permission": {
+                    "actor": "eosio",
+                    "permission": "active"
+                }
+            }
+        ],
+        "waits": []
+    },
+    "active": {
+        "threshold": 2,
+        "keys": [],
+        "accounts": [
+            {
+                "weight": 1,
+                "permission": {
+                    "actor": "ahayrapetian",
+                    "permission": "active"
+                }
+            },
+            {
+                "weight": 1,
+                "permission": {
+                    "actor": "aaron",
+                    "permission": "active"
+                }
+            }
+        ],
+        "waits": []
+    }
+}
+```
+
 - [x] 1.2 Create `dist.vaulta` account with network authority
+
+**newaccount**
+```json
+{
+    "creator": "eosio",
+    "name": "dist.vaulta",
+    "owner": {
+        "threshold": 1,
+        "keys": [],
+        "accounts": [
+            {
+                "weight": 1,
+                "permission": {
+                    "actor": "eosio",
+                    "permission": "active"
+                }
+            }
+        ],
+        "waits": []
+    },
+    "active": {
+        "threshold": 1,
+        "keys": [],
+        "accounts": [
+            {
+                "weight": 1,
+                "permission": {
+                    "actor": "eosio",
+                    "permission": "active"
+                }
+            }
+        ],
+        "waits": []
+    }
+}
+```
 
 #### Deploy Distribution Contract
 

@@ -199,3 +199,38 @@ graph TD
     "parent": "owner"
 }
 ```
+
+### Build & Verify
+
+This proposal deploys a contract identical to the `eosio.saving` contract on to the `dist.vaulta` account. 
+
+#### Building eosio.saving
+
+The `eosio.saving` account can be built using the CDT from:
+
+https://github.com/VaultaFoundation/eosio.saving
+
+#### Retrieve eosio.saving hash
+
+The contract hash that previously was deployed by BPs can be used to also verify the expected hash.
+
+```bash
+# Get hash for the existing contract
+curl https://eos.greymass.com/v1/chain/get_code_hash -d '{"account_name":"eosio.saving"}'
+```
+
+#### Verify Contract Hash
+
+Verify the WASM file in this project to ensure the hash matches the expected value:
+
+```bash
+# Calculate SHA256 hash of the built contract
+shasum -a 256 build/contracts/eosio.saving/eosio.saving.wasm
+```
+
+**Expected Hash:**
+```
+fc0dc47848a5d69ccd99fc60f74aa08c68bd734e1f2bc4b4c99191b99b39cffc
+``` 
+
+This same hash will be available to review within the proposal.

@@ -25,6 +25,8 @@ graph TD
 
 | Sender | Receiver | Allocation (%)| 
 |--------|----------|---------------|
+| eosio | eosio.saving | 83.55% |
+| eosio | producer pay | 16.45% |
 | eosio.saving | eosio.reward | 53.71% |
 | eosio.saving | dist.vaulta | 29.55% |
 | eosio.saving | eoslabs.io | 16.74% |

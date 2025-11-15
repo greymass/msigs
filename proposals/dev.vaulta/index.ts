@@ -91,33 +91,45 @@ const actions: Action[] = [
             },
         ],
     }),
-    // 6. Update fund.wram active permission, replace eosio.grants@active with eosio@active
-    systemContract.action('updateauth', {
-        account: 'fund.wram',
-        auth: NETWORK_AUTHORITY,
-        permission: 'active',
-        parent: 'owner',
-    }),
-    // 7. Update eosio.mware active permission, set to dev.vaulta account (remove msig, confirm with Labs)
-    systemContract.action('updateauth', {
-        account: 'eosio.mware',
-        auth: {
-            threshold: 1,
-            keys: [],
-            accounts: [
-                {
-                    weight: 1,
-                    permission: {
-                        actor: DEV_ACCOUNT,
-                        permission: 'active',
-                    },
-                },
-            ],
-            waits: [],
+    // 6. Update fund.wram active permission, replace active permission with eosio@active
+    systemContract.action(
+        'updateauth',
+        {
+            account: 'fund.wram',
+            auth: NETWORK_AUTHORITY,
+            permission: 'active',
+            parent: 'owner',
         },
-        permission: 'active',
-        parent: 'owner',
-    }),
+        {
+            authorization: [{ actor: 'fund.wram', permission: 'owner' }],
+        },
+    ),
+    // 7. Update eosio.mware active permission, replace active permission with dev.vaulta account
+    systemContract.action(
+        'updateauth',
+        {
+            account: 'eosio.mware',
+            auth: {
+                threshold: 1,
+                keys: [],
+                accounts: [
+                    {
+                        weight: 1,
+                        permission: {
+                            actor: DEV_ACCOUNT,
+                            permission: 'active',
+                        },
+                    },
+                ],
+                waits: [],
+            },
+            permission: 'active',
+            parent: 'owner',
+        },
+        {
+            authorization: [{ actor: 'eosio.mware', permission: 'owner' }],
+        },
+    ),
 ]
 
 const session = makeSession('eosio@active')

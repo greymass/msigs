@@ -40,21 +40,7 @@ export const DEV_AUTHORITY = {
 }
 
 const actions: Action[] = [
-    // 1. Create the development team account
-    systemContract.action('newaccount', {
-        active: DEV_AUTHORITY,
-        creator: SYSTEM_ACCOUNT,
-        name: DEV_ACCOUNT,
-        owner: NETWORK_AUTHORITY,
-    }),
-    // 2. Create the distribution contract account
-    systemContract.action('newaccount', {
-        active: NETWORK_AUTHORITY,
-        creator: SYSTEM_ACCOUNT,
-        name: DIST_ACCOUNT,
-        owner: NETWORK_AUTHORITY,
-    }),
-    // 3. Set the code and ABI for the distribution contract
+    // 1. Set the code and ABI for the distribution contract
     systemContract.action('setcode', {
         account: DIST_ACCOUNT,
         code: await getContractWasm('build/contracts/eosio.saving/eosio.saving.wasm'),
@@ -65,7 +51,7 @@ const actions: Action[] = [
         account: DIST_ACCOUNT,
         abi: await getContractAbi('build/contracts/eosio.saving/eosio.saving.abi'),
     }),
-    // 4. Initialize the distribution contract
+    // 2. Initialize the distribution contract
     distContract.action('setdistrib', {
         accounts: [
             {
@@ -74,7 +60,7 @@ const actions: Action[] = [
             },
         ],
     }),
-    // 5. Update eosio.saving parameters
+    // 3. Update eosio.saving parameters
     savingContract.action('setdistrib', {
         accounts: [
             {
@@ -91,7 +77,7 @@ const actions: Action[] = [
             },
         ],
     }),
-    // 6. Update fund.wram active permission, replace active permission with eosio@active
+    // 4. Update fund.wram active permission, replace active permission with eosio@active
     systemContract.action(
         'updateauth',
         {
@@ -104,7 +90,7 @@ const actions: Action[] = [
             authorization: [{ actor: 'fund.wram', permission: 'owner' }],
         },
     ),
-    // 7. Update eosio.mware active permission, replace active permission with dev.vaulta account
+    // 5. Update eosio.mware active permission, replace active permission with dev.vaulta account
     systemContract.action(
         'updateauth',
         {

@@ -77,17 +77,13 @@ Edit `.env` to set local configuration values.
 
 ## Running Proposals
 
-Each proposal can be executed from its directory:
+Each proposal can be executed by targetting the directory:
 
 ```bash
-# Navigate to a proposal directory
-cd proposals/<proposal-name>
-
-# Execute the proposal
-bun run index.ts
+bun run proposals/<proposal-name>
 ```
 
-This will generate a multisig proposal that can be reviewed and approved by the appropriate signers.
+This will create and submit a multisig proposal to Vaulta, which can then be reviewed and approved by the appropriate signers.
 
 ## Contributing
 

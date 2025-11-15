@@ -1,10 +1,7 @@
 import type { Action } from '@wharfkit/antelope'
 import { NETWORK_AUTHORITY } from '$lib/constants'
-import * as SystemContract from '$lib/contracts/eosio'
 import { logProposalLink } from '$lib/utils'
-import { client, makeSession } from '$lib/wharf'
-
-const systemContract = new SystemContract.Contract({ client })
+import { makeSession, systemContract } from '$lib/wharf'
 
 const actions: Action[] = [
     // 1   Update admin.grants permissions

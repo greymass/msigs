@@ -1,10 +1,12 @@
 import { APIClient } from '@wharfkit/antelope'
 import { Chains, Session } from '@wharfkit/session'
 import { WalletPluginPrivateKey } from '@wharfkit/wallet-plugin-privatekey'
+import * as SystemContract from '$lib/contracts/eosio'
 import { NODEOS_API_URL, PROPOSER_PERMISSION, PROPOSER_PRIVATE_KEY } from './constants'
 import { WalletPluginMultiSig } from './plugins/multisig'
 
 export const client = new APIClient({ url: NODEOS_API_URL })
+export const systemContract = new SystemContract.Contract({ client })
 
 export const walletPlugin = new WalletPluginPrivateKey(PROPOSER_PRIVATE_KEY)
 

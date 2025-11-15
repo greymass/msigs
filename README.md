@@ -16,7 +16,7 @@ This repository contains the following proposals for the Vaulta network:
 
 **Signers**: 15/21 BPs
 
-**Documentation**: [proposals/dev.accounts/README.md](proposals/dev.accounts/README.md)
+**Link**: [proposals/dev.accounts](proposals/dev.accounts)
 
 ---
 
@@ -28,7 +28,7 @@ This repository contains the following proposals for the Vaulta network:
 
 **Signers**: 15/21 BPs
 
-**Documentation**: [proposals/coredevdist/README.md](proposals/coredevdist/README.md)
+**Link**: [proposals/coredevdist](proposals/coredevdist)
 
 ---
 
@@ -40,7 +40,7 @@ This repository contains the following proposals for the Vaulta network:
 
 **Signers**: 15/21 BPs
 
-**Documentation**: [proposals/miscaccounts/README.md](proposals/miscaccounts/README.md)
+**Link**: [proposals/miscaccounts](proposals/miscaccounts)
 
 ---
 
@@ -52,7 +52,7 @@ This repository contains the following proposals for the Vaulta network:
 
 **Signers**: 2/3 Foundation
 
-**Documentation**: [proposals/unwindvf1/README.md](proposals/unwindvf1/README.md)
+**Link**: [proposals/unwindvf1](proposals/unwindvf1)
 
 ## Installation
 

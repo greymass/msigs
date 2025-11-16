@@ -155,6 +155,12 @@ const actions: Action[] = [
             authorization: [{ actor: DIST_ACCOUNT, permission: 'active' }],
         },
     ),
+    // 8. Buy the RAM for the distribution contract
+    systemContract.action('buyrambytes', {
+        bytes: 200000,
+        payer: SYSTEM_ACCOUNT,
+        receiver: DIST_ACCOUNT,
+    }),
 ]
 
 const session = makeSession('eosio@active')

@@ -237,6 +237,19 @@ graph TD
 }
 ```
 
+#### Allocate Resources
+
+- [x] 4.1 Buy RAM for `dist.vaulta` contract
+
+**buyrambytes**
+```json
+{
+    "bytes": 200000,
+    "payer": "eosio",
+    "receiver": "dist.vaulta"
+}
+```
+
 ### Build & Verify
 
 This proposal deploys a contract identical to the `eosio.saving` contract on to the `dist.vaulta` account. 

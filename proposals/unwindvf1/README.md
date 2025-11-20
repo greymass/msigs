@@ -18,7 +18,7 @@ This proposal resets the permission structures for the `admin.grants` and `eosio
 **eosio::unlinkauth**
 ```json
 {
-    "account": "eosio.grants",
+    "account": "admin.grants",
     "code": "rams.eos",
     "type": "mint"
 }
@@ -27,7 +27,7 @@ This proposal resets the permission structures for the `admin.grants` and `eosio
 **eosio::deleteauth**
 ```json
 {
-    "account": "eosio.grants",
+    "account": "admin.grants",
     "permission": "rams.eos"
 }
 ```
@@ -35,7 +35,7 @@ This proposal resets the permission structures for the `admin.grants` and `eosio
 **eosio::updateauth** (active)
 ```json
 {
-    "account": "eosio.grants",
+    "account": "admin.grants",
     "auth": {
         "threshold": 1,
         "keys": [],
@@ -58,7 +58,7 @@ This proposal resets the permission structures for the `admin.grants` and `eosio
 **eosio::updateauth** (owner)
 ```json
 {
-    "account": "eosio.grants",
+    "account": "admin.grants",
     "auth": {
         "threshold": 1,
         "keys": [],

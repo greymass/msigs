@@ -44,6 +44,20 @@ This proposal also addresses two Foundation accounts that are now inaccessible.
 
 Network consensus on this proposal is critical. It signals the network's direction and begins the handoff from the Vaulta Foundation to the new entities.
 
+### Understanding Network Ownership
+
+This document uses the phrase "owned by the network". This means no single person controls the account or makes the decision.
+
+Block Producers control these accounts through voting. **15 out of 21 Block Producers must agree** before any action happens.
+
+This control happens through the `eosio@active` or `eosio.prods@active` permission. Block Producers use this control to:
+- Manage account permissions
+- Change distribution configurations
+- Make decisions about network funds
+- Approve changes through network consensus
+
+This system keeps critical accounts and funds under community control.
+
 ## New Legal Entities
 
 This diagram shows the organizations that operate on behalf of the network. White boxes represent existing entities. Green boxes represent new entities.
@@ -86,7 +100,9 @@ A new intermediate step will be added to the existing [eosio.saving](#eosiosavin
 2. 50% flows to [dev.vaulta](#devvaulta) account for VDT access
 3. 50% flows to [fund.vaulta](#fundvaulta) account (unallocated)
 
-The [dev.vaulta](#devvaulta) account is owned by the Block Producers. The development team can access it when required. Only then do funds leave network control and go to the development team.
+The [dev.vaulta](#devvaulta) account is [owned by the network](#understanding-network-ownership). The development team can access it when required. Only then do funds leave network control and go to the development team.
+
+**Why use two distribution contracts?** The dist.vaulta contract sits between eosio.saving and dev.vaulta. This provides flexibility. [Block Producers](#understanding-network-ownership) can change development funding without touching the core eosio.saving contract. This protects core network systems.
 
 ### Legal Structure
 
@@ -104,7 +120,7 @@ This proposal delegates development team management to Areg and the team he choo
 
 The VDT will receive 50% of the distribution through the [dev.vaulta](#devvaulta) account from the [dist.vaulta](#distvaulta) account.
 
-The remaining 50% will go to the [fund.vaulta](#fundvaulta) account. This account is owned by the Block Producers (15/21 signature threshold).
+The remaining 50% will go to the [fund.vaulta](#fundvaulta) account. This account is [owned by the network](#understanding-network-ownership). The network will decide later how to use these funds. Future uses could include more development funding, community programs, or infrastructure projects.
 
 This amount should be enough to fund the core development team and its operations.
 
@@ -141,7 +157,7 @@ This msig proposal delegates responsibility to select people. They will form a t
 
 The group will work to achieve a sensible structure in terms of cost and governance. The transition team will be disbanded after the VNT is created and an initial board of directors is in place.
 
-**Note**: The transition team will be defined and included in the final version of this document and msig before the 2nd msig is proposed for approval.
+**Note**: The transition team will be defined before Proposal 2. This document v6 is ready for Proposal 1. A future version will add transition team details before Proposal 2.
 
 ### VNT Transition Team: Immediate Priorities
 
@@ -151,7 +167,7 @@ Network leadership will identify individuals or entities capable of leading the 
 - Identify a sufficient number of board members and recruit them to the future VNT board
 - Present the network leadership with a researched plan for approval using a symbolic msig
 - Create the legal entity and coordinate the transfer of assets from the Foundation
-- Reach consensus with the Block Producers on the members of the first Board of Directors
+- Reach consensus with [Block Producers](#understanding-network-ownership) on the members of the first Board of Directors
 
 ### VNT Scope
 
@@ -161,7 +177,7 @@ Once established, the VNT will be the custodian of the following for the Vaulta 
 - The Vaulta brand and intellectual property related to the Vaulta Network
 - Ownership of required services for operations (Github, Google Workspace, Domains, etc)
 
-The VNT Transition Team will work with the Vaulta Foundation as it shuts down. This will ensure a smooth transition. The transition will take an undetermined amount of time.
+The VNT Transition Team will work with the Vaulta Foundation as it shuts down. This ensures a smooth transition. The transition timeline is not yet determined.
 
 **Note**: This organization is NOT responsible for network activities like marketing or communications. This organization is exclusively responsible for off-chain asset management.
 
@@ -176,15 +192,31 @@ Ideal candidates for potential board members include:
 - Representatives of network-funded organizations
 - Block Producers
 
-The board can be changed at any time through network consensus. The transition team will explore whether this can be enforced through the organization's bylaws or through existing board members. If possible, this will be implemented.
+The board can be changed at any time through [network consensus](#understanding-network-ownership). The transition team will explore enforcement options. This may be through the organization's bylaws or through board member agreements. If possible, this will be implemented.
 
 ### VNT Funding
 
-This organization should have as low a budget as possible.
+This organization needs the smallest budget possible. The VNT focuses only on legal compliance and asset custody.
 
-Initial funding can come directly from leftover off-chain assets held by the outgoing Foundation during the handoff.
+Initial funding comes from leftover Foundation assets during the handoff.
 
-After the budget is determined, the VNT should budget for a 5-10 year minimal runway. Any excesses should be reported to the Block Producers for determination of their purpose.
+The transition team will calculate specific budget needs. This includes incorporation costs, legal compliance, basic administration, and asset management. The VNT should budget for 5-10 years of operations. Any extra funds should be reported to [Block Producers](#understanding-network-ownership) for a decision.
+
+---
+
+## Comparing VDT and VNT
+
+Now that both organizations are described, here is a comparison of their key differences:
+
+| Aspect | VDT (Development Team) | VNT (Network Trust) |
+|--------|------------------------|---------------------|
+| **Type** | For-profit corporation | Non-profit organization |
+| **Purpose** | Build and maintain software | Hold shared assets for the network |
+| **Size** | Full team (developers, staff) | Minimal (small board only) |
+| **Funding** | Claims from dev.vaulta account | Foundation assets during handoff |
+| **Control** | Delegated to Areg and VDT leadership | Board directed by network consensus |
+
+Both organizations are independent. Both serve the Vaulta Network but in different ways.
 
 ---
 
@@ -214,7 +246,7 @@ The following new accounts will be created.
 
 #### dev.vaulta
 
-This account is similar to eosio.grants previously used by the Vaulta Foundation. This account is owned by the network. The Block Producers have granted access to it for the [Vaulta Development Team](#vaulta-development-team-vdt). It will be used to claim and access funding through the [dist.vaulta](#distvaulta) distribution contract.
+This account is similar to eosio.grants previously used by the Vaulta Foundation. This account is [owned by the network](#understanding-network-ownership). The Block Producers have granted access to it for the [Vaulta Development Team](#vaulta-development-team-vdt). It will be used to claim and access funding through the [dist.vaulta](#distvaulta) distribution contract.
 
 **Permissions**:
 - owner: eosio@active (owned by the network)
@@ -223,7 +255,7 @@ This account is similar to eosio.grants previously used by the Vaulta Foundation
 
 #### dist.vaulta
 
-This is a secondary distribution contract owned by the network and managed by the Block Producers. The code for this contract is identical to eosio.saving.
+This is a secondary distribution contract [owned by the network](#understanding-network-ownership). The code for this contract is identical to eosio.saving.
 
 **Permissions**:
 - owner: eosio@active (owned by the network)
@@ -246,9 +278,9 @@ The second proposal configures the distribution contracts and resolves outstandi
 
 ### Messaging
 
-This msig will contain specific messaging to associate it with the text of this document. It will likely be either a hash or a link to a specifically versioned document. This represents the direction that the network has reached consensus on.
+The multisig proposal will include a reference to this document. This shows that the network agrees with this plan.
 
-This messaging will be done through a minimal token transfer. The memo field will contain the message.
+The reference will be a document hash or version link. It will be included through a small token transfer. The transfer memo field will contain the reference.
 
 ### Distribution Contract
 
@@ -271,7 +303,7 @@ The following new account will be created.
 This account can claim the 50% unallocated distribution from the dist.vaulta account. This is an administrative account. It is needed due to how the dist.vaulta contract works.
 
 **Permissions**:
-- owner: eosio@active (owned by the network)
+- owner: eosio@active ([owned by the network](#understanding-network-ownership))
 - active: eosio@active
 
 ### eosio.saving config
@@ -349,7 +381,9 @@ graph TD
 
 ### Updating permissions
 
-Two accounts have been identified as unusable based on their permissions. Each account exists in a 2-of-2 multisig between the Foundation and Labs. The Foundation is shutting down. These accounts cannot be used until the Block Producers (the owner of both accounts) take action.
+As the Vaulta Foundation shuts down, some existing accounts need permission updates to remain functional.
+
+Two accounts have been identified as unusable based on their permissions. Each account exists in a 2-of-2 multisig between the Foundation and Labs. The Foundation is shutting down. These accounts cannot be used until [Block Producers](#understanding-network-ownership) take action.
 
 Listed below are the actions to remove the Foundation from these permissions.
 
@@ -364,7 +398,7 @@ Account overview:
 - Active: 2-of-2 msig between Foundation and Labs
 - 10 million EOS allocated to Middleware, but not released
 
-This proposal would change the active permission to be controlled by the Block Producers (15/21).
+This proposal would change the active permission to [network ownership](#understanding-network-ownership).
 
 #### fund.wram
 
@@ -377,4 +411,4 @@ Account overview:
 - Active: 2-of-2 msig between Foundation and Labs
 - Approx 42GB RAM (45,181,397.077 KB) from tokenomics plan
 
-This proposal would change the active permission to be controlled by the Block Producers (15/21).
+This proposal would change the active permission to [network ownership](#understanding-network-ownership).

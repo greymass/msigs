@@ -49,6 +49,7 @@ Network consensus on this proposal is critical. It signals the network's directi
 This diagram shows the organizations that operate on behalf of the network. White boxes represent existing entities. Green boxes represent new entities.
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#333','lineColor':'#333','secondaryColor':'#fff','tertiaryColor':'#fff','background':'#fff','mainBkg':'#fff','secondBkg':'#fff','tertiaryBkg':'#fff'}}}%%
 graph TD
     vaulta["Vaulta<br/>The Network"]
     treasury["Treasury"]
@@ -63,12 +64,12 @@ graph TD
     vaulta --> development
     vaulta --> trust
     
-    style vaulta fill:#ddd
-    style treasury fill:#fff,stroke:#333
-    style labs fill:#fff,stroke:#333
-    style ventures fill:#fff,stroke:#333
-    style development fill:#9f9,stroke:#333
-    style trust fill:#9f9,stroke:#333
+    style vaulta fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style treasury fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style labs fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style ventures fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style development fill:#9f9,stroke:#333,stroke-width:2px,color:#000
+    style trust fill:#9f9,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ## Vaulta Development Team (VDT)
@@ -282,29 +283,30 @@ The eosio.saving contract configuration must change. The eosio.grants account wi
 The flow chart below shows how the eosio.saving contract is currently configured.
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#333','lineColor':'#333','secondaryColor':'#fff','tertiaryColor':'#fff','background':'#fff','mainBkg':'#fff','secondBkg':'#fff','tertiaryBkg':'#fff'}}}%%
 graph TD
-    eosio["eosio<br/>Core Contract<br/><br/>system contract"]
-    eosioprods["eosio.prods<br/>15 of 21<br/><br/>msig account"]
-    eosiosavings["eosio.savings<br/>Distribution Contract<br/><br/>system contract"]
-    eosioreward["eosio.reward<br/>Distribution Contract<br/><br/>system contract"]
-    eosiorex["eosio.rex<br/>Staking Rewards<br/><br/>system contract"]
-    eosiogrants["eosio.grants<br/>Foundation<br/><br/>msig account"]
-    eoslabsio["eoslabs.io<br/>Labs<br/><br/>msig account"]
+    eosio[eosio]
+    eosioprods["eosio.prods<br/>(15 of 21 BPs)"]
+    eosiosavings[eosio.savings]
+    eosioreward[eosio.reward]
+    eosiorex[eosio.rex]
+    eosiogrants[eosio.grants]
+    eoslabsio[eoslabs.io]
     
-    eosio -->|"&nbsp;"| eosiosavings
-    eosioprods -.->|"Decides on<br/>contract config"| eosiosavings
+    eosio --> eosiosavings
+    eosioprods -.->|"decides config"| eosiosavings
     eosiosavings -->|"53.71%"| eosioreward
     eosiosavings -->|"29.55%"| eosiogrants
     eosiosavings -->|"16.74%"| eoslabsio
     eosioreward -->|"100%"| eosiorex
     
-    style eosio fill:#ddd
-    style eosiosavings fill:#ddd
-    style eosioreward fill:#ddd
-    style eosiorex fill:#ddd
-    style eosiogrants fill:#fff
-    style eoslabsio fill:#fff
-    style eosioprods fill:#e8e8ff
+    style eosio fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eosiosavings fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eosioreward fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eosiorex fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eosiogrants fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style eoslabsio fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style eosioprods fill:#e8e8ff,stroke:#333,stroke-width:2px,color:#000
 ```
 
 #### Updated config
@@ -312,20 +314,21 @@ graph TD
 The diagram below shows how these contracts will be changed. New elements are highlighted in green. The eosio.grants account has been removed from the diagram.
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff','primaryTextColor':'#000','primaryBorderColor':'#333','lineColor':'#333','secondaryColor':'#fff','tertiaryColor':'#fff','background':'#fff','mainBkg':'#fff','secondBkg':'#fff','tertiaryBkg':'#fff'}}}%%
 graph TD
-    eosio["eosio<br/>Core Contract<br/><br/>system contract"]
-    eosioprods["eosio.prods<br/>15 of 21<br/><br/>msig account"]
-    eosiosavings["eosio.savings<br/>Distribution Contract<br/><br/>system contract"]
-    eosioreward["eosio.reward<br/>Distribution Contract<br/><br/>system contract"]
-    eosiorex["eosio.rex<br/>Staking Rewards<br/><br/>system contract"]
-    eoslabsio["eoslabs.io<br/>Labs<br/><br/>msig account"]
-    distvaulta["dist.vaulta<br/>Distribution Contract<br/><br/>msig account"]
-    fundvaulta["fund.vaulta<br/>New Entity<br/><br/>msig account"]
-    devvaulta["dev.vaulta<br/>New Entity<br/><br/>msig account"]
+    eosio[eosio]
+    eosioprods["eosio.prods<br/>(15 of 21 BPs)"]
+    eosiosavings[eosio.savings]
+    eosioreward[eosio.reward]
+    eosiorex[eosio.rex]
+    eoslabsio[eoslabs.io]
+    distvaulta[dist.vaulta]
+    fundvaulta[fund.vaulta]
+    devvaulta[dev.vaulta]
     
-    eosio -->|"&nbsp;"| eosiosavings
-    eosioprods -.->|"Decides on<br/>contract config for<br/>distribution"| eosiosavings
-    eosioprods -.->|"Decides on<br/>config for<br/>distribution"| distvaulta
+    eosio --> eosiosavings
+    eosioprods -.->|"decides config"| eosiosavings
+    eosioprods -.->|"decides config"| distvaulta
     eosiosavings -->|"53.71%"| eosioreward
     eosiosavings -->|"16.74%"| eoslabsio
     eosiosavings -->|"29.55%"| distvaulta
@@ -333,15 +336,15 @@ graph TD
     distvaulta -->|"50%"| fundvaulta
     distvaulta -->|"50%"| devvaulta
     
-    style eosio fill:#ddd
-    style eosiosavings fill:#ddd
-    style eosioreward fill:#ddd
-    style eosiorex fill:#ddd
-    style eoslabsio fill:#fff
-    style eosioprods fill:#e8e8ff
-    style distvaulta fill:#9f9
-    style fundvaulta fill:#9f9
-    style devvaulta fill:#9f9
+    style eosio fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eosiosavings fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eosioreward fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eosiorex fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style eoslabsio fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style eosioprods fill:#e8e8ff,stroke:#333,stroke-width:2px,color:#000
+    style distvaulta fill:#9f9,stroke:#333,stroke-width:2px,color:#000
+    style fundvaulta fill:#9f9,stroke:#333,stroke-width:2px,color:#000
+    style devvaulta fill:#9f9,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ### Updating permissions

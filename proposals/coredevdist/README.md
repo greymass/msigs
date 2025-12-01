@@ -188,7 +188,7 @@ graph TD
 }
 ```
 
-- [x] 4.2 Update `eosio.mware` active permission to dev.vaulta@active
+- [x] 4.2 Update `eosio.mware` active permission to network authority (replace existing permission with eosio@active)
 
 **updateauth**
 ```json
@@ -201,7 +201,7 @@ graph TD
             {
                 "weight": 1,
                 "permission": {
-                    "actor": "dev.vaulta",
+                    "actor": "eosio",
                     "permission": "active"
                 }
             }

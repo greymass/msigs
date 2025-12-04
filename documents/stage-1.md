@@ -260,7 +260,7 @@ Additional technical information for each proposal is available using the Github
 
 ## MSIG 1: Account Creation
 
-MSIG 1 creates the 3 accounts required for this proposal. This must happen before deploying the smart contract and setting the distribution configuration. All accounts are initially owned by the network (15 of 21 Block Producers).
+MSIG 1 creates the 3 accounts required for this proposal. This must happen before deploying the smart contract and setting the distribution configuration. All accounts are initially [owned by the network](#understanding-network-ownership).
 
 **Technical Documentation**: [../proposals/dev.accounts/](../proposals/dev.accounts/)
 
@@ -287,7 +287,7 @@ This account is similar to eosio.grants previously used by the Vaulta Foundation
 - active: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership))
 
 **Permissions (after MSIG 2)**:
-- owner: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership))
+- owner: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership)) - (No changes from MSIG 1)
 - active: VDT multi-sig ([VDT Permissions](#vdt-permissions))
   - Structure: Either 2-of-3 or 3-of-5 as defined by Areg
   - Signers: To be confirmed before MSIG 2 execution
@@ -296,10 +296,14 @@ This account is similar to eosio.grants previously used by the Vaulta Foundation
 
 This is a secondary distribution contract [owned by the network](#understanding-network-ownership). The code for this contract is identical to eosio.saving.
 
-**Permissions**:
+**Permissions (after MSIG 1)**:
 - owner: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership))
 - active: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership))
-- devclaim: account-based permission added in MSIG 2 to allow calling upstream eosio.saving::claim action
+
+**Permissions (after MSIG 2)**:
+- owner: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership)) - (No changes from MSIG 1)
+- active: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership)) - (No changes from MSIG 1)
+- devclaim: dev.vaulta@active (allows calling upstream eosio.saving::claim action)
 
 This contract can claim tokens upstream from the eosio.saving account. Those tokens are then distributed based on this contract's configuration. See [eosio.saving config](#eosiosaving-config) for additional details.
 
@@ -312,6 +316,10 @@ Block Producers will decide later how to use these funds.
 **Permissions (after MSIG 1)**:
 - owner: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership))
 - active: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership))
+
+**Permissions (after MSIG 2)**:
+- owner: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership)) - (No changes from MSIG 1)
+- active: eosio@active ([15 of 21 Block Producers](#understanding-network-ownership)) - (No changes from MSIG 1)
 
 ## MSIG 2: Contracts and Configuration
 

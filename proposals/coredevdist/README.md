@@ -18,7 +18,7 @@ All of the accounts listed below are owned by the network.
 - `dist.vaulta` receives partial distribution and can redistribute
 - `dev.vaulta` claims and allocates to development team accounts
 
-The `dev.vaulta` while being owned by the network is accessible by representatives of the development team. This will start as a 2-of-2 msig permission between Areg and Aaron. Additional signers can be added over time as required.
+The `dev.vaulta` account is owned by the network but accessible by the development team. The active permission will be updated to a VDT multi-sig (either 2-of-3 or 3-of-5 as defined by Areg, to be confirmed before MSIG 2 execution).
 
 This configuration can be temporary. At the time of this proposal it is undecided on how this configuration operates long term. This initial configuration is designed to provide a bucket to bootstrap the core development team.
 

@@ -10,7 +10,7 @@ This repository contains multisig proposals for the Vaulta network. Each proposa
 
 **Document**: [Stage 1 Proposal](documents/stage-1.md)  
 **Purpose**: Describes the transition from Vaulta Foundation to new entities (VDT & VNT)  
-**Status**: 📝 Draft v6
+**Status**: 📝 Draft v8
 
 This document provides the full context and rationale for the Stage 1 transition, including:
 - Creation of Vaulta Development Team (VDT) and Vaulta Network Trust (VNT)
@@ -23,7 +23,7 @@ This document provides the full context and rationale for the Stage 1 transition
 
 **Purpose**: Creates accounts for Vaulta development infrastructure  
 **Dependencies**: None  
-**Signers**: 15/21 BPs  
+**Signers**: 15 of 21 Block Producers  
 **Proposal**: https://unicove.com/msig/aaron/fwmpntxlmfhz  
 **Links**: [Documentation](proposals/dev.accounts) | [Code](proposals/dev.accounts/index.ts)
 
@@ -33,7 +33,7 @@ This document provides the full context and rationale for the Stage 1 transition
 
 **Purpose**: Deploys distribution contracts and configures funding  
 **Dependencies**: Requires `dev.accounts` to be executed first  
-**Signers**: 15/21 BPs  
+**Signers**: 15 of 21 Block Producers  
 **Links**: [Documentation](proposals/coredevdist) | [Code](proposals/coredevdist/index.ts)
 
 ---
@@ -60,7 +60,7 @@ This document provides the full context and rationale for the Stage 1 transition
 
 **Purpose**: Creates accounts for new Vaulta platform contracts  
 **Dependencies**: Requires `dev.accounts` to be executed first  
-**Signers**: 15/21 BPs  
+**Signers**: 15 of 21 Block Producers  
 **Links**: [Documentation](proposals/miscaccounts) | [Code](proposals/miscaccounts/index.ts)
 
 ---
